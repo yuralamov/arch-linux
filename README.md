@@ -4,7 +4,6 @@ https://wiki.archlinux.org/
 
 loadkeys ru  
 setfont cyr-sun16  
-cat /sys/firmware/efi/fw_platform_size  
 ip link  
 ping archlinux.org  
 #####
