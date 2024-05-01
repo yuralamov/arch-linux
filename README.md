@@ -20,7 +20,7 @@ pacman -S mdadm
 fdisk -l  
 wipefs --all --force /dev/sda /dev/sdb  
 fdisk /dev/sda  
-1G esp (t) + all
+1G esp (t) + all  
 fdisk /dev/sdb  
 1G swap (t) + all  
 mdadm --create --verbose /dev/md127 --chunk=128 --level=0 --raid-devices=2 /dev/sda2 /dev/sdb2
