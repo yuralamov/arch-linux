@@ -2,7 +2,6 @@
 https://wiki.archlinux.org/  
 Установка арча на ноут acer 8G 2x500G HDD  
 
-localectl list-keymaps   
 loadkeys ru  
 setfont cyr-sun16  
 cat /sys/firmware/efi/fw_platform_size  
