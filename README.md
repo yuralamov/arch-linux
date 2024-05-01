@@ -28,8 +28,8 @@ swapon /dev/sdb1
 mkfs.fat -F 32 /dev/sda1  
 mount /dev/md127 /mnt  
 mount --mkdir /dev/sda1 /mnt/boot  
-pacstrap -K /mnt base linux-lts linux-lts-headers linux-firmware base-devel nano grub efibootmgr dhcpcd dhclient networkmanager intel-ucode iucode-tool xfce4 xfce4-goodies sddm mdadm  
-genfstab -U /mnt >> /mnt/etc/fstab
+pacstrap -K /mnt base linux-lts linux-lts-headers linux-firmware base-devel nano grub efibootmgr dhcpcd dhclient networkmanager intel-ucode iucode-tool xfce4 xfce4-goodies sddm mdadm wpa_supplicant  
+genfstab -U /mnt >> /mnt/etc/fstab  
 arch-chroot /mnt  
 ####
 ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime  
