@@ -20,16 +20,16 @@ pacman -S mdadm
 fdisk -l  
 wipefs --all --force /dev/sda /dev/sdb  
 fdisk /dev/sda  
-1G esp + all
+1G esp (t) + all
 fdisk /dev/sdb  
-1G + all  
+1G swap (t) + all  
 mdadm --create --verbose /dev/md127 --chunk=128 --level=0 --raid-devices=2 /dev/sda2 /dev/sdb2
 mkfs.ext4 -b 4096 -E stride=32,stripe-width=64 /dev/md127  
-mkswap /dev/sdb2  
+mkswap /dev/sdb1  
+swapon /dev/sdb1  
 mkfs.fat -F 32 /dev/sda1  
 mount /dev/md127 /mnt  
 mount --mkdir /dev/sda1 /mnt/boot  
-swapon /dev/sdb1  
 pacstrap -K /mnt base linux-lts linux-lts-headers linux-firmware base-devel nano grub efibootmgr dhcpcd dhclient networkmanager intel-ucode iucode-tool xfce4 xfce4-goodies sddm mdadm  
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt  
