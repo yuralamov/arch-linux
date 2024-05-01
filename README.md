@@ -23,8 +23,8 @@ fdisk /dev/sda
 1G esp + all
 fdisk /dev/sdb  
 1G + all  
-sudo mdadm --create --verbose /dev/md127 --chunk=128 --level=0 --raid-devices=2 /dev/sda2 /dev/sdb2
-mkfs.ext4 /dev/md127  
+mdadm --create --verbose /dev/md127 --chunk=128 --level=0 --raid-devices=2 /dev/sda2 /dev/sdb2
+mkfs.ext4 -b 4096 -E stride=32,stripe-width=64 /dev/md127  
 mkswap /dev/sdb2  
 mkfs.fat -F 32 /dev/sda1  
 mount /dev/md127 /mnt  
@@ -43,6 +43,7 @@ nano /etc/vconsole.conf
 KEYMAP=ru  
 FONT=cyr-sun16  
 echo "acer" | tee -a /etc/hostname  
+mdadm --detail --scan | sudo tee -a /etc/mdadm.conf
 nano /etc/mkinitcpio.conf
 mkinitcpio -P  
 passwd  
