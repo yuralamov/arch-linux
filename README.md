@@ -42,8 +42,8 @@ nano /etc/vconsole.conf
 KEYMAP=ru  
 FONT=cyr-sun16  
 echo "acer" | tee -a /etc/hostname  
-mdadm --detail --scan | sudo tee -a /etc/mdadm.conf
-nano /etc/mkinitcpio.conf
+mdadm --detail --scan | sudo tee -a /etc/mdadm.conf  
+nano /etc/mkinitcpio.conf  
 mkinitcpio -P  
 passwd  
 grub-install /dev/sda  
