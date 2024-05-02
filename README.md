@@ -15,6 +15,7 @@ station wlan0 connect SSID
 ####
 timedatectl  
 pacman -S mdadm
+
 fdisk -l  
 wipefs --all --force /dev/sda /dev/sdb  
 fdisk /dev/sda  
